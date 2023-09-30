@@ -21,7 +21,7 @@ program ripimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
   integer :: nphi0
 
   real(kp) :: phi0,w,bfoldstar
@@ -38,11 +38,11 @@ program ripimain
   real(kp) :: lnRradMin, lnRradMax, lnRrad
   real(kp) :: VendOverVstar, eps1End, xend
 
-  nphi0 = 50
+  nphi0 = 10
 
 !  phi0min=4._kp/3._kp*10.**(-3.)
-  phi0min=5._kp*10.**(-3.)
-  phi0max=4._kp/3._kp*10.**(3.)
+  phi0min=2._kp*10.**(-5.)
+  phi0max=2._kp*10.**(-4.)
 
   Pstar = powerAmpScalar
 
@@ -84,7 +84,7 @@ program ripimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('ripi_predic.dat',phi0,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('ripi_true.dat',phi0,xEnd)
 
         call livewrite('ripi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

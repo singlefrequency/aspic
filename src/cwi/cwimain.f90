@@ -22,7 +22,7 @@ program cwimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 15
+  integer :: npts = 10
 
   integer :: NQ
   real(kp) :: Qmin,Qmax
@@ -118,7 +118,7 @@ program cwimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('cwi_predic1.dat',alpha,Q,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('cwi_true.dat',alpha,xend)
 
         
         call aspicwrite_data((/eps1,eps2/),(/ns,r/),(/abs(bfoldstar),lnRhoReh/),(/Q/))

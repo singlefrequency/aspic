@@ -21,7 +21,7 @@ program mhimain
   real(kp) :: Pstar, logErehGeV, Treh, mu, mumin, mumax
 
   integer :: i,j
-  integer :: npts = 20, nj=20
+  integer :: npts = 10, nj=10
 
   real(kp) :: w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -46,8 +46,8 @@ program mhimain
   !  w = 1._kp/3._kp
   w=0._kp
 
-  mumin=(10._kp)**(-1)
-  mumax=(10._kp)**2
+  mumin=(10._kp)**(-2)
+  mumax=(10._kp)**0
 
   do j=0,nj
      mu=mumin*(mumax/mumin)**(real(j,kp)/real(nj,kp))
@@ -88,7 +88,7 @@ program mhimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('mhi_predic.dat',mu,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('mhi_true.dat',mu,xEnd)
 
         call livewrite('mhi_nsr.dat',mu,ns,r,abs(bfoldstar),lnRhoReh)
 

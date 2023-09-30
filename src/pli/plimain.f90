@@ -21,7 +21,7 @@ program plimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i
-  integer :: npts = 2
+  integer :: npts = 10
 
   real(kp) :: alpha,w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -79,7 +79,7 @@ program plimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('pli_predic.dat',alpha,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('pli_true.dat',alpha,xEnd)
 
         call livewrite('pli_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

@@ -70,7 +70,7 @@ program limain
 !!!  alpha>0   !!!
 !!!!!!!!!!!!!!!!!!
 
-  npts = 20
+  npts = 10
 
   alphamin=0.003
   alphamax=2._kp
@@ -109,7 +109,7 @@ program limain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('li_predic.dat',alpha,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('li_true.dat',alpha,xEnd)
 
         call livewrite('li_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

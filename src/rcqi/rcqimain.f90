@@ -21,7 +21,7 @@ program rcqimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
 
   real(kp) :: alpha,w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -97,7 +97,7 @@ program rcqimain
              .and.(eps2.lt.0.1).and.(eps2.gt.0.15)) cycle
 
 
-        call livewrite('rcqi_predic.dat',alpha,w,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('rcqi_true.dat',alpha,xEnd)
 
         call livewrite('rcqi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

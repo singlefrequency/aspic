@@ -23,7 +23,7 @@ program rcmimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
 
   real(kp) :: alpha,w,bfoldstar,Vstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -106,7 +106,7 @@ program rcmimain
              .and.(eps2.lt.0.1).and.(eps2.gt.0.15)) cycle
 
 
-        call livewrite('rcmi_predic.dat',alpha,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('rcmi_true.dat',alpha,xEnd)
 
         call livewrite('rcmi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

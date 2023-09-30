@@ -21,7 +21,7 @@ program cnaimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
   integer :: nalpha
 
   real(kp) :: alpha,w,bfoldstar
@@ -38,9 +38,9 @@ program cnaimain
 
   real(kp) :: eps1A,eps2A,eps3A,nsA,rA,eps1B,eps2B,eps3B,nsB,rB,xstarA,xstarB
 
-  nalpha = 100
+  nalpha = 10
 
-  alphamin=10.**(-2.5)
+  alphamin=10.**(-4)
   alphamax=sqrt(0.5_kp*(sqrt(15._kp)-3._kp))
 
   Pstar = powerAmpScalar
@@ -80,7 +80,7 @@ program cnaimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('cnai_predic.dat',alpha,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('cnai_true.dat',alpha,xEnd)
 
         call livewrite('cnai_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

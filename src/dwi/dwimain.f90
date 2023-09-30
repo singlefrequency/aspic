@@ -21,11 +21,11 @@ program dwimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
 
   integer :: Nphi0
-  ! real(kp) :: phi0min=2._kp*sqrt(2._kp)
-  real(kp) :: phi0min=7.6_kp
+  real(kp) :: phi0min=2._kp*sqrt(2._kp)
+  ! real(kp) :: phi0min=7.6_kp
   real(kp) :: phi0max=10._kp**3
 
   real(kp) :: phi0,w,bfoldstar
@@ -41,7 +41,7 @@ program dwimain
   real(kp) :: VendOverVstar, eps1End, xend
 
 
-  Nphi0=26
+  Nphi0=10
 
   Pstar = powerAmpScalar
 
@@ -109,7 +109,7 @@ program dwimain
   call delete_file('dwi_predic.dat')
   call delete_file('dwi_nsr.dat')
 
-  npts = 8
+  npts = 10
 
   !  w = 1._kp/3._kp
   w=0._kp
@@ -156,7 +156,7 @@ program dwimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('dwi_predic.dat',phi0,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('dwi_true.dat',phi0,xEnd)
 
         call livewrite('dwi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

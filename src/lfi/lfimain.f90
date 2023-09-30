@@ -26,7 +26,7 @@ program lfimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i
-  integer :: npts = 20
+  integer :: npts = 10
 
   real(kp) :: p,w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -78,7 +78,7 @@ program lfimain
        ns = 1._kp - 2._kp*eps1 - eps2
        r =16._kp*eps1
 
-       call livewrite('lfi_predic.dat',p,eps1,eps2,eps3,r,ns,Treh)
+       call livewrite('lfi_true.dat',p,xEnd)
        call livewrite('lfi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
        
      

@@ -21,7 +21,7 @@ program aimain
   real(kp) :: Pstar, logErehGeV, Treh, mu, mumin, mumax
 
   integer :: i,j
-  integer :: npts = 20, nj=20
+  integer :: npts = 10, nj=10
 
   real(kp) :: w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -86,7 +86,7 @@ program aimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('ai_predic.dat',mu,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('ai_true.dat',mu,xEnd)
 
         call livewrite('ai_nsr.dat',mu,ns,r,abs(bfoldstar),lnRhoReh)
 

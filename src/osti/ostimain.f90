@@ -21,11 +21,11 @@ program ostimostin
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
 
   integer :: Nphi0
-  real(kp) :: phi0min=4._kp
-  real(kp) :: phi0max=10._kp**3
+  real(kp) :: phi0min=10._kp
+  real(kp) :: phi0max=10._kp**4
 
   real(kp) :: phi0,w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -37,7 +37,7 @@ program ostimostin
   real(kp) :: lnRradMin, lnRradMax, lnRrad
   real(kp) :: VendOverVstar, eps1End, xend
 
-  Nphi0=40
+  Nphi0=10
 
   Pstar = powerAmpScalar
 
@@ -86,7 +86,7 @@ program ostimostin
        ns = 1._kp - 2._kp*eps1 - eps2
        r =16._kp*eps1
 
-       call livewrite('osti_predic.dat',phi0,eps1,eps2,eps3,r,ns,Treh)
+       call livewrite('osti_true.dat',phi0,xEnd)
 
        call livewrite('osti_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

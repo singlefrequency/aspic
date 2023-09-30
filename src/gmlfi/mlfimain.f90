@@ -79,7 +79,7 @@ program mlfimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('mlfi_predic.dat',alpha,p,q,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('mlfi_true.dat',alpha,xEnd)
 
         call livewrite('mlfi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

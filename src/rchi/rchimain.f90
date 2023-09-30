@@ -40,7 +40,7 @@ program rchimain
   real(kp) :: lnRradMin, lnRradMax, lnRrad
   real(kp) :: VendOverVstar, eps1End, xend
 
-  nAI=70
+  nAI=10
   AImin=-10._kp
   AImax=100._kp
 
@@ -89,7 +89,7 @@ program rchimain
 
 !        if ((abs(eps2).gt.0.2) .or. (eps1.lt.1e-6)) cycle
 
-        call livewrite('rchi_predic.dat',AI,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('rchi_true.dat',AI,xend)
 
         call livewrite('rchi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

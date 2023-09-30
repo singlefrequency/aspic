@@ -24,7 +24,7 @@ program cnbimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 8
+  integer :: npts = 10
   integer :: nalpha
 
   real(kp) :: alpha,w,bfoldstar
@@ -43,9 +43,9 @@ program cnbimain
 
   real(kp), dimension(2) :: xEps1
 
-  nalpha = 90
+  nalpha = 10
 
-  alphamin=10.**(-2.5)
+  alphamin=10.**(-4)
   alphamax=0.2975_kp*0.9
 
   Pstar = powerAmpScalar
@@ -102,7 +102,7 @@ program cnbimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('cnbi_predic.dat',alpha,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('cnbi_true.dat',alpha,xEnd)
 
         call livewrite('cnbi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

@@ -47,9 +47,9 @@ program mssmimain
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  phi0min=10._kp**(-6.)
-  phi0max=10._kp**(-0.)
-  nphi0=100
+  phi0min=2*10._kp**(-5.)
+  phi0max=2*10._kp**(-4.)
+  nphi0=10
   call delete_file('mssmi_xend.dat')
 
   do j=0,nphi0
@@ -68,8 +68,8 @@ program mssmimain
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  npts = 20
-  nphi0=100
+  npts = 10
+  nphi0=10
 
   w=0._kp
   !  w = 1._kp/3._kp
@@ -80,8 +80,8 @@ program mssmimain
   call aspicwrite_header('mssmi',labeps12,labnsr,labbfoldreh,(/'phi0'/))
   
   !Prior on phi0
-  phi0min=10._kp**(-2.)
-  phi0max=10._kp**(3.)
+  phi0min=2._kp*10._kp**(-5.)
+  phi0max=2._kp*10._kp**(-4.)
 
   call livewrite('mssmi_predic.dat',10._kp**(-4.), &
        10._kp**(-8)/(60._kp*50._kp**2),4._kp/50._kp, &
@@ -118,7 +118,7 @@ program mssmimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('mssmi_predic.dat',phi0,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('mssmi_true.dat',phi0,xEnd)
 
         call aspicwrite_data((/eps1,eps2/),(/ns,r/),(/abs(bfoldstar),lnRhoReh/),(/phi0/))
 

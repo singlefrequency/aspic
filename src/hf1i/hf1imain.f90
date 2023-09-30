@@ -21,7 +21,7 @@ program hf1imain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
   integer ::nA1
 
   real(kp) :: A1,w,bfoldstar
@@ -46,7 +46,7 @@ program hf1imain
   !  w = 1._kp/3._kp
   w=0._kp
 
-  call delete_file('hf1i_predic.dat')
+  call delete_file('hf1i_true.dat')
   call delete_file('hf1i_nsr.dat')
 
   call aspicwrite_header('hf1i',labeps12,labnsr,labbfoldreh,(/'A1'/))
@@ -80,7 +80,7 @@ program hf1imain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('hf1i_predic.dat',A1,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('hf1i_true.dat',A1,xEnd)
 
         call livewrite('hf1i_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

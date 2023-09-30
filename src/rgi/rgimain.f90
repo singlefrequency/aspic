@@ -22,11 +22,11 @@ program rgimain
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 20
+  integer :: npts = 10
 
   integer :: Nalpha
   real(kp) :: alphamin=0.00001
-  real(kp) :: alphamax=10000._kp
+  real(kp) :: alphamax=1._kp
 
   real(kp) :: alpha,w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r
@@ -41,7 +41,7 @@ program rgimain
   real(kp) :: lnRradMin, lnRradMax, lnRrad
   real(kp) :: VendOverVstar, eps1End, xend
 
-  Nalpha = 20
+  Nalpha = 10
 
   Pstar = powerAmpScalar
 
@@ -83,7 +83,7 @@ program rgimain
 
         call aspicwrite_data((/eps1,eps2/),(/ns,r/),(/abs(bfoldstar),lnRhoReh/),(/alpha/))
 
-        call livewrite('rgi_predic.dat',alpha,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('rgi_true.dat',alpha,xEnd)
 
         call livewrite('rgi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

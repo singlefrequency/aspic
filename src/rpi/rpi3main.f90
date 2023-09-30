@@ -21,9 +21,9 @@ program rpi3main
   real(kp) :: Pstar, logErehGeV, Treh
 
   integer :: i,j
-  integer :: npts = 15
+  integer :: npts = 10
 
-  integer :: Np=20
+  integer :: Np=10
   real(kp) :: pmin=0.8_kp
   real(kp) :: pmax=1._kp
 
@@ -88,7 +88,7 @@ program rpi3main
 
         call aspicwrite_data((/eps1,eps2/),(/ns,r/),(/abs(bfoldstar),lnRhoReh/),(/1._kp-p/))
         
-        call livewrite('rpi3_predic.dat',p,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('rpi3_true.dat',p,xEnd)
 
         call livewrite('rpi3_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 

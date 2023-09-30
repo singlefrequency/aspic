@@ -22,7 +22,7 @@ program sfimain
   real(kp) :: Pstar,calF
 
   integer :: i,j
-  integer :: npts = 20,nmu=30.
+  integer :: npts = 10,nmu=10.
 
   real(kp) :: mu,p,w,bfoldstar
   real(kp) :: lnRhoReh,xstar,eps1,eps2,eps3,ns,r,Treh
