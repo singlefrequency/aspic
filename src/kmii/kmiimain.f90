@@ -80,7 +80,7 @@ program kmiimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('kmii_predic.dat',alpha,xEnd)
+        call livewrite('kmii_true.dat',alpha,xEnd)
 
         call livewrite('kmii_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 
