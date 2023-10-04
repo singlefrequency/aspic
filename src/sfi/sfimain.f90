@@ -57,8 +57,8 @@ program sfimain
 !!!! p=1  !!!!
 !!!!!!!!!!!!!!
 
-  mumin=11.
-  mumax=10._kp**(3.)
+  mumin=10._kp**(-1.)
+  mumax=10._kp**(0.)
   p = 1._kp
 
 
@@ -109,8 +109,8 @@ program sfimain
 !!!! p=1  !!!!
 !!!!!!!!!!!!!!
 
-  mumin=0.7
-  mumax=10._kp**(3.)
+  mumin=10._kp**(-1.)
+  mumax=10._kp**(0.)
   p = 2._kp
 
   do j=0,nmu
@@ -160,8 +160,8 @@ program sfimain
 !!!! p=4  !!!!
 !!!!!!!!!!!!!!
 
-  mumin=0.7
-  mumax=10._kp**(3.)
+  mumin=10._kp**(-1.)
+  mumax=10._kp**(0.)
   p = 4._kp 
   
   do j=0,nmu
