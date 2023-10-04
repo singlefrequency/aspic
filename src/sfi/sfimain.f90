@@ -94,7 +94,7 @@ program sfimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('sfi_predic.dat',p,mu,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('sfip1_true.dat',p,mu,xEnd)
 
         call livewrite('sfi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 
@@ -146,7 +146,7 @@ program sfimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('sfi_predic.dat',p,mu,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('sfip2_true.dat',p,mu,xEnd)
 
         call livewrite('sfi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
         
@@ -197,7 +197,7 @@ program sfimain
         ns = 1._kp - 2._kp*eps1 - eps2
         r =16._kp*eps1
 
-        call livewrite('sfi_predic.dat',p,mu,eps1,eps2,eps3,r,ns,Treh)
+        call livewrite('sfip4_true.dat',p,mu,xEnd)
 
         call livewrite('sfi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
        
