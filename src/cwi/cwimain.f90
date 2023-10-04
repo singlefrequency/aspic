@@ -76,7 +76,7 @@ program cwimain
   Qmin=0.00001
   Qmax=0.001
 
-  NQ=15
+  NQ=10
   alpha=4._kp*exp(1._kp)
 
   Pstar = powerAmpScalar
