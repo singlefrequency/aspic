@@ -5,8 +5,8 @@ program rchimain
   use rchisr, only : rchi_epsilon_one, rchi_epsilon_two, rchi_epsilon_three
   use rchireheat, only : rchi_lnrhoreh_max, rchi_x_star
   use infinout, only : delete_file, livewrite
-  use srreheat, only : log_energy_reheat_ingev
-
+  use srreheat, only : log_energy_reheat_ingev, potential_normalization
+  
   use rchisr, only : rchi_norm_potential, rchi_x_endinf
   use rchireheat, only : rchi_x_rreh, rchi_x_rrad
   use srreheat, only : get_lnrrad_rreh, get_lnrreh_rrad, ln_rho_endinf
@@ -19,7 +19,7 @@ program rchimain
   implicit none
 
 
-  real(kp) :: Pstar, logErehGeV, Treh
+  real(kp) :: Pstar, logErehGeV, Treh, norm
 
   integer :: i,j
   integer :: npts = 10
@@ -38,7 +38,7 @@ program rchimain
   
   real(kp) :: lnRmin, lnRmax, lnR, lnRhoEnd
   real(kp) :: lnRradMin, lnRradMax, lnRrad
-  real(kp) :: VendOverVstar, eps1End, xend
+  real(kp) :: VendOverVstar, eps1End, xend, Vend, Vstar
 
   nAI=10
   AImin=-10._kp
@@ -88,8 +88,12 @@ program rchimain
         r =16._kp*eps1
 
 !        if ((abs(eps2).gt.0.2) .or. (eps1.lt.1e-6)) cycle
-
-        call livewrite('rchi_true.dat',AI,xend)
+        
+        Vstar = rchi_norm_potential(xstar,AI)
+        Vend = rchi_norm_potential(xend,AI)
+        norm = sqrt(potential_normalization(Pstar,eps1,Vstar)**4*Vend)
+		
+        call livewrite('rchi_true.dat',AI,xend,potential_normalization(Pstar,eps1,Vstar),norm)
 
         call livewrite('rchi_nsr.dat',ns,r,abs(bfoldstar),lnRhoReh)
 
